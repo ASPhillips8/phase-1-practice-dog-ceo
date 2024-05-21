@@ -50,9 +50,9 @@ dropDown.addEventListener("click", () => {
   
   for(const dogLetter of dogList)
     if (dogLetter.textContent.startsWith(letter)) {
-      dogLetter.style.visibility = "visible";
+      dogLetter.style.display = "block";
     } else {
-      dogLetter.style.visibility = "hidden"
+      dogLetter.style.display = "none"
     }
 });
 
