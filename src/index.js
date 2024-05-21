@@ -2,9 +2,9 @@ console.log('%c HI', 'color: firebrick')
 
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = "https://dog.ceo/api/breeds/list/all"
-
-
-
+const dogBreed = document.getElementById("dog-breeds") 
+const dogCard = document.getElementById("dog-image-container")
+const doggo = document.querySelectorAll("li.doggo") 
 function getAllDogPics() {
 
   fetch(imgUrl)
@@ -13,7 +13,6 @@ function getAllDogPics() {
 }
 
 function dogRender(dogImage) { 
-  const dogCard = document.getElementById("dog-image-container")
 
     const img = document.createElement("img")
     img.src = dogImage
@@ -21,9 +20,6 @@ function dogRender(dogImage) {
     dogCard.appendChild(img)
 }
 
-// fetch dog bred with breedUrl
-// ??add creeds to page in ul
-const dogBreed = document.getElementById("dog-breeds") 
 
 function getDogBreed () {
 
@@ -34,20 +30,26 @@ function getDogBreed () {
     breadNames.forEach((breedDetail) => breedRender(breedDetail))
   })
 }
-// Object.keys(breedData.message).forEach(breedDetail => breedRender(breedDetail))
-
-///breadData.message is an object
 
 function breedRender (breedDetail) {
-  const dogBreed = document.getElementById("dog-breeds") 
 
   const li = document.createElement("li")
   li.textContent = breedDetail
+  li.classList.add("doggo")
+  li.addEventListener("click", () => {
+    li.style.color = "blue" 
+    })
   dogBreed.appendChild(li)
-
-
 }
 
+// doggo.addEventListener("click", function () {
+//   li.style.color = "blue"
+// })
+
+//create function to handle click
+// function handleClick(breadDetail) {
+//   console.log("Selected:" , breadDetail)
+// }
 
 
 function initialize() {
